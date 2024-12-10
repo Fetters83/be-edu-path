@@ -77,9 +77,13 @@ const fetchAverageAttendance = async (yearGroup, keyStage, studentId) => {
 };
 
 const fetchLowestAttenders = async (accademicYear, yearGroup, Class, term) => {
-  if (accademicYear && typeof accademicYear != "string") {
-    throw { status: 400, msg: "accademicYear must be of type string." };
-  }
+
+  const regex = /^[0-9]{4}\/[0-9]{2}$/
+
+  if (accademicYear && regex.test(accademicYear)===false) {
+      throw { status: 400, msg: "academicYear must be of type string and in the correct format." };
+    }
+
 
   if (yearGroup && isNaN(parseInt(yearGroup))) {
     throw { status: 400, msg: "yearGroup must be of type integer." };
