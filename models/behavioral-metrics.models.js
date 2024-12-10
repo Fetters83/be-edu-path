@@ -43,7 +43,7 @@ const fetchIncidentRate = async (
     if (severity) filter.severity = severity;
     if (status) filter.status = status;
 
-    console.log("Filter being applied:", filter);
+   
 
     // Use aggregation to calculate incident rates
     const records = await client
@@ -76,6 +76,7 @@ const fetchIncidentRate = async (
       .toArray();
 
     return records;
+
   } catch (error) {
     console.error("Error in fetchIncidentRate:", error);
     throw error;
@@ -99,6 +100,7 @@ const fetchResolutionRate = async (academicYear, yearGroup) => {
   try {
     await run();
 
+    console.log('db connected')
     const filter = { status: "Pending" };
     if (yearGroup) filter.yearGroup = parseInt(yearGroup);
     if (academicYear) filter.academicYear = academicYear;
@@ -131,7 +133,7 @@ const fetchResolutionRate = async (academicYear, yearGroup) => {
 const fetchTop5BehaviorIncidents = async (academicYear, yearGroup) => {
 
     const regex = /^[0-9]{4}\/[0-9]{2}$/;
-
+    console.log("in model")
     if (academicYear && regex.test(academicYear) === false) {
       throw {
         status: 400,
@@ -143,27 +145,24 @@ const fetchTop5BehaviorIncidents = async (academicYear, yearGroup) => {
       throw { status: 400, msg: "yearGroup must be of type integer." };
     }
 
-    if(Class && typeof Class !='string'){
-        throw { status: 400, msg: "Class must be of type integer." };
-    }
-
+    
     try {
         await run(); // Ensure the MongoDB client is connected
 
     // Build the filter object based on the query parameters
-    const filter = {};
+    let filter = {};
     if (yearGroup) filter.yearGroup = parseInt(yearGroup);
     if (academicYear) filter.academicYear = academicYear;
-
+ 
     
-        
+    
         const records = await client.db('eduPath').collection('behavior_logs').aggregate([
 
-            { $match: filter }, // Apply the filter
+            { $match: filter}, // Apply the filter
             {
               $group: {
                 _id: {
-                  academicYear: "$accademicYear", // Adjust this field based on how your data stores term info
+                  academicYear: "$academicYear", // Adjust this field based on how your data stores term info
                   yearGroup: "$yearGroup",
                   subcategory: "$subcategory",
                 },
@@ -182,16 +181,17 @@ const fetchTop5BehaviorIncidents = async (academicYear, yearGroup) => {
           ])
           .toArray();
 
+          console.log("records retrieved")
           records.sort((b, a) => a.incidentCount - b.incidentCount);
           const results = records.slice(0,5)
 
           return {AcademicYear:academicYear?academicYear:"All Academic Years",
             yearGroup:yearGroup? yearGroup:"All Year Groups",
-            Class:Class?Class:"All Classes",
             results}
 
        
     } catch (error) {
+      console.log(error)
         throw error
     }
 

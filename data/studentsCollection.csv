@@ -1,4 +1,4 @@
-studentId,accademicYear,firstName,lastName,dateOfBirth,yearGroup,Class,keyStage,phonicsCheckResult,ks1ReadingScore,ks1ReadingGrade,ks1MathsScore,ks1MathsGrade,ks1GPSScore,ks1GPSGrade,readingScore,readingGrade,mathsScore,mathsGrade,gpsScore,gpsGrade,writingScore,writingGrade,scienceScore,scienceGrade,mtcScore,attendance_autumnTerm,attendance_springTerm,attendance_summerTerm,parentContactName,parentContactEmail,parentContactPhone
+studentId,academicYear,firstName,lastName,dateOfBirth,yearGroup,Class,keyStage,phonicsCheckResult,ks1ReadingScore,ks1ReadingGrade,ks1MathsScore,ks1MathsGrade,ks1GPSScore,ks1GPSGrade,readingScore,readingGrade,mathsScore,mathsGrade,gpsScore,gpsGrade,writingScore,writingGrade,scienceScore,scienceGrade,mtcScore,attendance_autumnTerm,attendance_springTerm,attendance_summerTerm,parentContactName,parentContactEmail,parentContactPhone
 1001,2019/20,Melinda,Schoendorf,2014-02-16,1,1A,KS1,WES,,,,,,,,,,,,,,,,,,99,98,94,Roland Schoendorf,RolandSchoendorf@mail.co.uk,7227373372
 1002,2019/20,Zuzana,Ricky,2014-04-04,1,1A,KS1,WES,,,,,,,,,,,,,,,,,,94,93,94,Welch Ricky,WelchRicky@mail.co.uk,7543553253
 1003,2019/20,Tba,Valdes,2013-09-15,1,1A,KS1,WES,,,,,,,,,,,,,,,,,,94,95,96,Frederique Valdes,FrederiqueValdes@mail.co.uk,7484680043
@@ -629,55 +629,55 @@ studentId,accademicYear,firstName,lastName,dateOfBirth,yearGroup,Class,keyStage,
 1386,2021/22,Stangneth,Lean,2015-10-23,1,1B,KS1,WES,,,,,,,,,,,,,,,,,,94,73,95,Siffat Lean,SiffatLean@email.co.uk,7284016731
 1387,2021/22,Jones,Mello,2016-04-15,1,1B,KS1,WES,,,,,,,,,,,,,,,,,,98,93,81,Sean Mello,SeanMello@email.co.uk,7319213627
 1388,2021/22,Rici,Link,2016-07-30,1,1B,KS1,WES,,,,,,,,,,,,,,,,,,99,93,70,Naseem Link,NaseemLink@email.co.uk,7671027988
-1291,2021/22,Tawnie,Douglas,2014-10-05,2,2A,KS1,WES,,,,,,,,,,,,,,,,,16,97,94,95,Laima Ashlegh,LaimaAshlegh@email.co.uk,7416576733
-1292,2021/22,Bria,Ashlegh,2015-07-22,2,2A,KS1,WES,,,,,,,,,,,,,,,,,22,93,98,94,Gayle Exline,Gayle Exline@email.co.uk,7382641829
-1293,2021/22,Dina,Exline,2015-06-18,2,2A,KS1,WES,,,,,,,,,,,,,,,,,21,100,85,97,Sheehan Nicole,Sheehanan Nicole@email.co.uk,7368685632
-1294,2021/22,Gyöngyi,Nicole,2014-09-09,2,2A,KS1,WES,,,,,,,,,,,,,,,,,22,93,93,100,Caren Wagner,Caren Wagner@email.co.uk,7720939232
-1295,2021/22,Mya,Wagner,2015-06-24,2,2A,KS1,WES,,,,,,,,,,,,,,,,,22,100,97,74,Salome Lockwood,SalomeLockwood@email.co.uk,7975004044
-1296,2021/22,Carla,Lockwood,2014-12-29,2,2A,KS1,WES,,,,,,,,,,,,,,,,,14,93,94,74,Modelo Boulos,Modeloo Boulos@email.co.uk,7119714119
-1297,2021/22,Ollie,Boulos,2015-02-06,2,2A,KS1,WES,,,,,,,,,,,,,,,,,17,80,94,100,Parker Estuardo,ParkerEstuardo@email.co.uk,7859760296
-1298,2021/22,Vibeke,Estuardo,2015-04-21,2,2A,KS1,WES,,,,,,,,,,,,,,,,,12,99,74,93,Pyzikiewicz Lucentini,Pyzikiewiczicz Lucentini@email.co.uk,7622043112
-1299,2021/22,Summer,Lucentini,2014-11-14,2,2A,KS1,WES,,,,,,,,,,,,,,,,,24,93,96,96,Tawnie Weyn,Tawnienie Weyn@email.co.uk,7824883306
-1300,2021/22,Jaye,Weyn,2014-11-20,2,2A,KS1,BES,,,,,,,,,,,,,,,,,25,97,94,98,Rocco Bicicleta,Roccocicleta@email.co.uk,7277929943
-1301,2021/22,Leandro,Bicicleta,2015-02-06,2,2A,KS1,BES,,,,,,,,,,,,,,,,,22,98,95,97,Desiree Smith,Desireeree Smith@email.co.uk,7981139498
-1302,2021/22,Beatrice,Smith,2015-04-19,2,2A,KS1,WES,,,,,,,,,,,,,,,,,23,100,80,96,Fern Kastner,Fernastner@email.co.uk,7371744756
-1303,2021/22,Toni,Kastner,2015-06-24,2,2A,KS1,WES,,,,,,,,,,,,,,,,,20,100,93,94,Dawn Christopherson,Dawnherson@email.co.uk,7556928502
-1304,2021/22,Audrey,Christopherson,2015-07-10,2,2A,KS1,BES,,,,,,,,,,,,,,,,,13,100,95,94,Bjorn Fink,Bjornrn Fink@email.co.uk,7219225920
-1305,2021/22,Humbeto,Fink,2015-06-04,2,2A,KS1,WES,,,,,,,,,,,,,,,,,22,82,71,97,Golden Slocum,Goldenn Slocum@email.co.uk,7576395587
-1306,2021/22,Mehdi,Slocum,2014-12-30,2,2A,KS1,BES,,,,,,,,,,,,,,,,,20,98,98,100,Aida Szkolnik,Aidakolnik@email.co.uk,7253748536
-1307,2021/22,Zuzana,Szkolnik,2015-03-29,2,2A,KS1,BES,,,,,,,,,,,,,,,,,17,99,97,98,Reddin Armantrout,Reddinmantrout@email.co.uk,7266708696
-1308,2021/22,Dezza,Armantrout,2015-02-21,2,2A,KS1,WES,,,,,,,,,,,,,,,,,20,99,96,73,Jasson Rowland,Jasson Rowland@email.co.uk,7344869177
-1309,2021/22,Elyssa,Rowland,2014-10-20,2,2A,KS1,WES,,,,,,,,,,,,,,,,,14,99,97,98,Ruby Naegele,Rubyaegele@email.co.uk,7966584806
-1310,2021/22,Cahuich,Naegele,2015-08-18,2,2A,KS1,BES,,,,,,,,,,,,,,,,,23,98,98,97,Ginny Friend,Ginny Friend@email.co.uk,7706241720
-1311,2021/22,Gingi,Friend,2014-11-06,2,2A,KS1,WES,,,,,,,,,,,,,,,,,25,100,93,97,Nickola Tranent,Nickolaa Tranent@email.co.uk,7142660800
-1312,2021/22,Adele,Tranent,2015-07-29,2,2A,KS1,WES,,,,,,,,,,,,,,,,,22,98,99,97,Francesc Levin,Francesccesc Levin@email.co.uk,7618239053
-1313,2021/22,Tré,Levin,2014-12-20,2,2A,KS1,WES,,,,,,,,,,,,,,,,,18,71,82,97,Sureli Watts,Surelili Watts@email.co.uk,7881870089
-1314,2021/22,Farrokh,Watts,2015-06-02,2,2A,KS1,BES,,,,,,,,,,,,,,,,,,99,95,95,Ariana Barnett,Ariana Barnett@email.co.uk,7765454793
-1315,2021/22,Bigler,Barnett,2015-07-17,2,2A,KS1,WES,,,,,,,,,,,,,,,,,,100,98,94,Muy Orozco,Muyrozco@email.co.uk,7372957643
-1316,2021/22,Sloan,Orozco,2015-05-06,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,100,85,93,Tilo Mena,Tiloo Mena@email.co.uk,7937198909
-1317,2021/22,Christinne,Mena,2014-11-24,2,2B,KS1,BES,,,,,,,,,,,,,,,,,,94,96,71,Markus Ricardo,Markus Ricardo@email.co.uk,7351551559
-1318,2021/22,Emanuele,Ricardo,2014-12-30,2,2B,KS1,BES,,,,,,,,,,,,,,,,,,97,94,99,Sholeh O'hare,Sholehh O'hare@email.co.uk,7765710526
-1319,2021/22,Beatrice,O'hare,2015-04-10,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,100,99,95,Empleado Garry,Empleadoeado Garry@email.co.uk,7995282563
-1320,2021/22,Christelle,Garry,2015-01-22,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,98,75,99,Una Stern,UnaStern@email.co.uk,7551715978
-1321,2021/22,Arthur2,Stern,2015-06-17,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,93,95,94,Cash Pequeno,Cashequeno@email.co.uk,7879338838
-1322,2021/22,Mikaela,Pequeno,2014-09-06,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,93,98,99,Delaney Ruotolo.,Delaney Ruotolo.@email.co.uk,7708855824
-1323,2021/22,Gary,Ruotolo.,2015-07-01,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,83,98,95,Beverly Sosa,Beverlyerly Sosa@email.co.uk,7451158527
-1324,2021/22,Lashana,Sosa,2015-07-19,2,2B,KS1,BES,,,,,,,,,,,,,,,,,,93,99,94,Nuria Cascio,Nuria Cascio@email.co.uk,7220139915
-1325,2021/22,Wardley,Cascio,2015-04-29,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,94,100,97,Royer York,Royerer York@email.co.uk,7644859410
-1326,2021/22,Ramiro,York,2014-11-28,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,100,93,98,Caitlyn Castañeda,CaitlynCastañeda@email.co.uk,7552786074
-1327,2021/22,Noma,Castañeda,2015-06-30,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,96,99,99,Jessica Brunet,Jessicaca Brunet@email.co.uk,7122203566
-1328,2021/22,Nerijus,Brunet,2014-09-05,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,85,83,93,Surrie Sirma,Surrieie Sirma@email.co.uk,7898430867
-1329,2021/22,Nolan,Sirma,2015-05-25,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,95,96,71,Christine Marcela,Christineine Marcela@email.co.uk,7214682464
-1330,2021/22,Wardley,Marcela,2015-08-26,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,99,94,95,Bener Kowkobany,Benerwkobany@email.co.uk,7358713656
-1331,2021/22,Sanuel,Kowkobany,2014-09-10,2,2B,KS1,BES,,,,,,,,,,,,,,,,,,93,97,73,Alejandra Pottinger,Alejandraa Pottinger@email.co.uk,7519531007
-1332,2021/22,Kellie,Pottinger,2015-03-23,2,2B,KS1,BES,,,,,,,,,,,,,,,,,,93,96,93,Jehu Vernau,JehuVernau@email.co.uk,7660630354
-1333,2021/22,Kristen,Vernau,2014-10-16,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,93,100,93,Randy Anna,Randydy Anna@email.co.uk,7616547734
-1334,2021/22,Miriam,Anna,2015-03-16,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,95,100,95,Mala O'hare,MalaO'hare@email.co.uk,7979898536
-1335,2021/22,Danielle,O'hare,2015-07-28,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,93,100,94,Estin Herbert,EstinHerbert@email.co.uk,7469486252
-1336,2021/22,Susan,Herbert,2015-06-11,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,98,99,99,Grave Dennis,Grave Dennis@email.co.uk,7155998772
-1337,2021/22,Juan,Dennis,2015-02-22,2,2B,KS1,BES,,,,,,,,,,,,,,,,,,96,99,95,Luz Saigin,Luzaigin@email.co.uk,7529024216
-1338,2021/22,Constantino,Saigin,2014-12-29,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,95,98,100,Ivy Orlando,Ivylando@email.co.uk,7870750235
-1339,2021/22,Shlomit,Orlando,2015-06-18,2,2B,KS1,WES,,,,,,,,,,,,,,,,,,94,97,98,Whitney Schoendorf,Whitneychoendorf@email.co.uk,7789009048
+1291,2021/22,Tawnie,Douglas,2014-10-05,2,2A,KS1,WES,108,WES,107,WES,97,BES,,,,,,,,,,,16,97,94,95,Laima Ashlegh,LaimaAshlegh@email.co.uk,7416576733
+1292,2021/22,Bria,Ashlegh,2015-07-22,2,2A,KS1,WES,104,WES,107,WES,93,BES,,,,,,,,,,,22,93,98,94,Gayle Exline,Gayle Exline@email.co.uk,7382641829
+1293,2021/22,Dina,Exline,2015-06-18,2,2A,KS1,WES,101,WES,108,WES,94,BES,,,,,,,,,,,21,100,85,97,Sheehan Nicole,Sheehanan Nicole@email.co.uk,7368685632
+1294,2021/22,Gyöngyi,Nicole,2014-09-09,2,2A,KS1,WES,109,WES,103,WES,96,BES,,,,,,,,,,,22,93,93,100,Caren Wagner,Caren Wagner@email.co.uk,7720939232
+1295,2021/22,Mya,Wagner,2015-06-24,2,2A,KS1,WES,89,BES,98,BES,113,WES,,,,,,,,,,,22,100,97,74,Salome Lockwood,SalomeLockwood@email.co.uk,7975004044
+1296,2021/22,Carla,Lockwood,2014-12-29,2,2A,KS1,WES,85,BES,87,BES,86,BES,,,,,,,,,,,14,93,94,74,Modelo Boulos,Modeloo Boulos@email.co.uk,7119714119
+1297,2021/22,Ollie,Boulos,2015-02-06,2,2A,KS1,WES,106,WES,100,WES,104,WES,,,,,,,,,,,17,80,94,100,Parker Estuardo,ParkerEstuardo@email.co.uk,7859760296
+1298,2021/22,Vibeke,Estuardo,2015-04-21,2,2A,KS1,WES,90,BES,106,WES,96,BES,,,,,,,,,,,12,99,74,93,Pyzikiewicz Lucentini,Pyzikiewiczicz Lucentini@email.co.uk,7622043112
+1299,2021/22,Summer,Lucentini,2014-11-14,2,2A,KS1,WES,90,BES,114,WES,95,BES,,,,,,,,,,,24,93,96,96,Tawnie Weyn,Tawnienie Weyn@email.co.uk,7824883306
+1300,2021/22,Jaye,Weyn,2014-11-20,2,2A,KS1,BES,91,BES,89,BES,92,BES,,,,,,,,,,,25,97,94,98,Rocco Bicicleta,Roccocicleta@email.co.uk,7277929943
+1301,2021/22,Leandro,Bicicleta,2015-02-06,2,2A,KS1,BES,99,BES,100,WES,105,WES,,,,,,,,,,,22,98,95,97,Desiree Smith,Desireeree Smith@email.co.uk,7981139498
+1302,2021/22,Beatrice,Smith,2015-04-19,2,2A,KS1,WES,95,BES,112,WES,102,WES,,,,,,,,,,,23,100,80,96,Fern Kastner,Fernastner@email.co.uk,7371744756
+1303,2021/22,Toni,Kastner,2015-06-24,2,2A,KS1,WES,93,BES,102,WES,101,WES,,,,,,,,,,,20,100,93,94,Dawn Christopherson,Dawnherson@email.co.uk,7556928502
+1304,2021/22,Audrey,Christopherson,2015-07-10,2,2A,KS1,BES,106,WES,113,WES,108,WES,,,,,,,,,,,13,100,95,94,Bjorn Fink,Bjornrn Fink@email.co.uk,7219225920
+1305,2021/22,Humbeto,Fink,2015-06-04,2,2A,KS1,WES,107,WES,85,BES,112,WES,,,,,,,,,,,22,82,71,97,Golden Slocum,Goldenn Slocum@email.co.uk,7576395587
+1306,2021/22,Mehdi,Slocum,2014-12-30,2,2A,KS1,BES,89,BES,92,BES,104,WES,,,,,,,,,,,20,98,98,100,Aida Szkolnik,Aidakolnik@email.co.uk,7253748536
+1307,2021/22,Zuzana,Szkolnik,2015-03-29,2,2A,KS1,BES,106,WES,89,BES,86,BES,,,,,,,,,,,17,99,97,98,Reddin Armantrout,Reddinmantrout@email.co.uk,7266708696
+1308,2021/22,Dezza,Armantrout,2015-02-21,2,2A,KS1,WES,95,BES,115,WES,93,BES,,,,,,,,,,,20,99,96,73,Jasson Rowland,Jasson Rowland@email.co.uk,7344869177
+1309,2021/22,Elyssa,Rowland,2014-10-20,2,2A,KS1,WES,114,WES,92,BES,85,BES,,,,,,,,,,,14,99,97,98,Ruby Naegele,Rubyaegele@email.co.uk,7966584806
+1310,2021/22,Cahuich,Naegele,2015-08-18,2,2A,KS1,BES,102,WES,88,BES,97,BES,,,,,,,,,,,23,98,98,97,Ginny Friend,Ginny Friend@email.co.uk,7706241720
+1311,2021/22,Gingi,Friend,2014-11-06,2,2A,KS1,WES,108,WES,96,BES,95,BES,,,,,,,,,,,25,100,93,97,Nickola Tranent,Nickolaa Tranent@email.co.uk,7142660800
+1312,2021/22,Adele,Tranent,2015-07-29,2,2A,KS1,WES,106,WES,101,WES,87,BES,,,,,,,,,,,22,98,99,97,Francesc Levin,Francesccesc Levin@email.co.uk,7618239053
+1313,2021/22,Tré,Levin,2014-12-20,2,2A,KS1,WES,114,WES,95,BES,90,BES,,,,,,,,,,,18,71,82,97,Sureli Watts,Surelili Watts@email.co.uk,7881870089
+1314,2021/22,Farrokh,Watts,2015-06-02,2,2A,KS1,BES,114,WES,87,BES,107,WES,,,,,,,,,,,,99,95,95,Ariana Barnett,Ariana Barnett@email.co.uk,7765454793
+1315,2021/22,Bigler,Barnett,2015-07-17,2,2A,KS1,WES,109,WES,92,BES,88,BES,,,,,,,,,,,,100,98,94,Muy Orozco,Muyrozco@email.co.uk,7372957643
+1316,2021/22,Sloan,Orozco,2015-05-06,2,2B,KS1,WES,91,BES,87,BES,103,WES,,,,,,,,,,,,100,85,93,Tilo Mena,Tiloo Mena@email.co.uk,7937198909
+1317,2021/22,Christinne,Mena,2014-11-24,2,2B,KS1,BES,109,WES,115,WES,112,WES,,,,,,,,,,,,94,96,71,Markus Ricardo,Markus Ricardo@email.co.uk,7351551559
+1318,2021/22,Emanuele,Ricardo,2014-12-30,2,2B,KS1,BES,98,BES,113,WES,106,WES,,,,,,,,,,,,97,94,99,Sholeh O'hare,Sholehh O'hare@email.co.uk,7765710526
+1319,2021/22,Beatrice,O'hare,2015-04-10,2,2B,KS1,WES,88,BES,111,WES,108,WES,,,,,,,,,,,,100,99,95,Empleado Garry,Empleadoeado Garry@email.co.uk,7995282563
+1320,2021/22,Christelle,Garry,2015-01-22,2,2B,KS1,WES,103,WES,96,BES,108,WES,,,,,,,,,,,,98,75,99,Una Stern,UnaStern@email.co.uk,7551715978
+1321,2021/22,Arthur2,Stern,2015-06-17,2,2B,KS1,WES,85,BES,110,WES,106,WES,,,,,,,,,,,,93,95,94,Cash Pequeno,Cashequeno@email.co.uk,7879338838
+1322,2021/22,Mikaela,Pequeno,2014-09-06,2,2B,KS1,WES,102,WES,97,BES,88,BES,,,,,,,,,,,,93,98,99,Delaney Ruotolo.,Delaney Ruotolo.@email.co.uk,7708855824
+1323,2021/22,Gary,Ruotolo.,2015-07-01,2,2B,KS1,WES,85,BES,92,BES,103,WES,,,,,,,,,,,,83,98,95,Beverly Sosa,Beverlyerly Sosa@email.co.uk,7451158527
+1324,2021/22,Lashana,Sosa,2015-07-19,2,2B,KS1,BES,107,WES,85,BES,87,BES,,,,,,,,,,,,93,99,94,Nuria Cascio,Nuria Cascio@email.co.uk,7220139915
+1325,2021/22,Wardley,Cascio,2015-04-29,2,2B,KS1,WES,89,BES,107,WES,91,BES,,,,,,,,,,,,94,100,97,Royer York,Royerer York@email.co.uk,7644859410
+1326,2021/22,Ramiro,York,2014-11-28,2,2B,KS1,WES,97,BES,96,BES,105,WES,,,,,,,,,,,,100,93,98,Caitlyn Castañeda,CaitlynCastañeda@email.co.uk,7552786074
+1327,2021/22,Noma,Castañeda,2015-06-30,2,2B,KS1,WES,101,WES,109,WES,106,WES,,,,,,,,,,,,96,99,99,Jessica Brunet,Jessicaca Brunet@email.co.uk,7122203566
+1328,2021/22,Nerijus,Brunet,2014-09-05,2,2B,KS1,WES,92,BES,106,WES,87,BES,,,,,,,,,,,,85,83,93,Surrie Sirma,Surrieie Sirma@email.co.uk,7898430867
+1329,2021/22,Nolan,Sirma,2015-05-25,2,2B,KS1,WES,90,BES,108,WES,93,BES,,,,,,,,,,,,95,96,71,Christine Marcela,Christineine Marcela@email.co.uk,7214682464
+1330,2021/22,Wardley,Marcela,2015-08-26,2,2B,KS1,WES,99,BES,87,BES,109,WES,,,,,,,,,,,,99,94,95,Bener Kowkobany,Benerwkobany@email.co.uk,7358713656
+1331,2021/22,Sanuel,Kowkobany,2014-09-10,2,2B,KS1,BES,96,BES,94,BES,109,WES,,,,,,,,,,,,93,97,73,Alejandra Pottinger,Alejandraa Pottinger@email.co.uk,7519531007
+1332,2021/22,Kellie,Pottinger,2015-03-23,2,2B,KS1,BES,109,WES,102,WES,89,BES,,,,,,,,,,,,93,96,93,Jehu Vernau,JehuVernau@email.co.uk,7660630354
+1333,2021/22,Kristen,Vernau,2014-10-16,2,2B,KS1,WES,92,BES,92,BES,90,BES,,,,,,,,,,,,93,100,93,Randy Anna,Randydy Anna@email.co.uk,7616547734
+1334,2021/22,Miriam,Anna,2015-03-16,2,2B,KS1,WES,92,BES,93,BES,105,WES,,,,,,,,,,,,95,100,95,Mala O'hare,MalaO'hare@email.co.uk,7979898536
+1335,2021/22,Danielle,O'hare,2015-07-28,2,2B,KS1,WES,92,BES,104,WES,115,WES,,,,,,,,,,,,93,100,94,Estin Herbert,EstinHerbert@email.co.uk,7469486252
+1336,2021/22,Susan,Herbert,2015-06-11,2,2B,KS1,WES,93,BES,102,WES,94,BES,,,,,,,,,,,,98,99,99,Grave Dennis,Grave Dennis@email.co.uk,7155998772
+1337,2021/22,Juan,Dennis,2015-02-22,2,2B,KS1,BES,85,BES,97,BES,111,WES,,,,,,,,,,,,96,99,95,Luz Saigin,Luzaigin@email.co.uk,7529024216
+1338,2021/22,Constantino,Saigin,2014-12-29,2,2B,KS1,WES,114,WES,100,WES,92,BES,,,,,,,,,,,,95,98,100,Ivy Orlando,Ivylando@email.co.uk,7870750235
+1339,2021/22,Shlomit,Orlando,2015-06-18,2,2B,KS1,WES,104,WES,89,BES,86,BES,,,,,,,,,,,,94,97,98,Whitney Schoendorf,Whitneychoendorf@email.co.uk,7789009048
 1001,2021/22,Melinda,Schoendorf,2014-02-16,3,3A,KS1,WES,106,WES,99,BES,112,WES,,,,,,,,,,,,96,95,96,Roland Schoendorf,RolandSchoendorf@mail.co.uk,7227373372
 1002,2021/22,Zuzana,Ricky,2014-04-04,3,3A,KS1,WES,103,WES,93,BES,113,WES,,,,,,,,,,,,100,93,94,Welch Ricky,WelchRicky@mail.co.uk,7543553253
 1003,2021/22,Tba,Valdes,2013-09-15,3,3A,KS1,WES,86,BES,97,BES,106,WES,,,,,,,,,,,,96,94,96,Frederique Valdes,FrederiqueValdes@mail.co.uk,7484680043

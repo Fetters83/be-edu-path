@@ -3,11 +3,11 @@ const { fetchKS1GradeCount, fetchKS2GradeCount, fetchKS1GradeCountYearOnYear, fe
 
 const getKS1GradeCount = async (req,res,next)=>{
 
-    const {accademicYear,yearGroup} = req.query
+    const {academicYear,yearGroup} = req.query
 
     try {
 
-        const data = await fetchKS1GradeCount(accademicYear,yearGroup)
+        const data = await fetchKS1GradeCount(academicYear,yearGroup)
         res.status(200).send(data)
         
     } catch (error) {
@@ -19,12 +19,12 @@ const getKS1GradeCount = async (req,res,next)=>{
 
 const getKS2GradeCount = async (req,res,next)=>{
 
-    const {accademicYear} = req.query
+    const {academicYear} = req.query
    
 
     try {
 
-        const data = await fetchKS2GradeCount(accademicYear)
+        const data = await fetchKS2GradeCount(academicYear)
         res.status(200).send(data)
         
     } catch (error) {
