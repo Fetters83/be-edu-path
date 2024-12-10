@@ -1,4 +1,4 @@
-const { fetchIncidentRate, fetchResolutionRate } = require("../models/behavioral-metrics.models")
+const { fetchIncidentRate, fetchResolutionRate, fetchTop5BehaviorIncidents } = require("../models/behavioral-metrics.models")
 
 const getIncidentRate = async (req,res,next) =>{
 
@@ -31,4 +31,18 @@ const getResolutionRate = async(req,res,next) =>{
 
 }
 
-module.exports = {getIncidentRate,getResolutionRate}
+const getTop5BehaviorIncidents= async(req,res,next) =>{
+
+    const {academicYear,yearGroup} = req.query
+
+    try {
+        
+        const data = await fetchTop5BehaviorIncidents(academicYear,yearGroup)
+        res.status(200).send(data)
+    } catch (error) {
+        next(error)
+    }
+
+}
+
+module.exports = {getIncidentRate,getResolutionRate,getTop5BehaviorIncidents}
