@@ -43,4 +43,7 @@ const fetchParticipationRate = async (academicYear,yearGroup) => {
     }
 };
 
+
+
+
 module.exports = { fetchParticipationRate };
