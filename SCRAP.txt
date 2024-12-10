@@ -1,0 +1,87 @@
+const {client,run} = require('../connection')
+
+const fetchKS1GradeCount = async (accademicYear,yearGroup)=>{
+
+    if (accademicYear && typeof accademicYear != "string") {
+        throw { status: 400, msg: "academicYear must be of type string." };
+      }
+   
+   
+    if (yearGroup && isNaN(parseInt(yearGroup))) {
+        throw { status: 400, msg: "yearGroup must be of type integer." };
+      }
+    
+      if (keyStage && typeof keyStage != "string") {
+        throw { status: 400, msg: "keyStage must be of type string." };
+      }
+    
+  
+
+    try {
+
+        let filter = {keyStage:keyStage};
+ 
+
+   
+
+        if(accademicYear){
+            filter.accademicYear = accademicYear;
+        }
+
+        if (yearGroup) {
+            filter.yearGroup = parseInt(yearGroup);
+          }
+
+
+          let resultsObj = {
+            AcademicYear:accademicYear? accademicYear:"All Academic Years",
+            YearGroup:yearGroup? yearGroup:"All Year Groups",
+            keyStage:1,
+            ReadingGDSCount:0,
+            ReadingEXSCount:0,
+            ReadingWTCount:0,
+            MathsGDSCount:0,
+            MathsEXSCount:0,
+            MathsWTCount:0,
+            GpsGDSCount:0,
+            GpsEXSCount:0,
+            GpsWTCount:0,
+        }
+
+    const records = await client
+      .db("eduPath")
+      .collection("students")
+      .find(filter)
+      .toArray();
+
+     const readingGradesGDSArr = records.filter((record)=>record.ks1ReadingGrade==='GDS')
+     const readingGradesEXSArr = records.filter((record)=>record.ks1ReadingGrade==='EXS')
+     const readingGradesWTArr = records.filter((record)=>record.ks1ReadingGrade==='WT')
+     const mathsGradesGDSArr = records.filter((record)=>record.ks1MathsGrade==='GDS')
+     const mathsGradesEXSArr = records.filter((record)=>record.ks1MathsGrade==='EXS')
+     const mathsGradesWTArr = records.filter((record)=>record.ks1MathsGrade==='WT')
+     const gpsGradesGDSArr = records.filter((record)=>record.ks1GPSGrade==='GDS')
+     const gpsGradesEXSArr = records.filter((record)=>record.ks1GPSGrade==='EXS')
+     const gpsGradesWTArr = records.filter((record)=>record.ks1GPSGrade==='WT') 
+     
+
+     resultsObj.ReadingGDSCount = readingGradesGDSArr.length
+     resultsObj.ReadingEXSCount = readingGradesEXSArr.length
+     resultsObj.ReadingWTCount = readingGradesWTArr.length
+     resultsObj.MathsGDSCount = mathsGradesGDSArr.length
+     resultsObj.MathsEXSCount = mathsGradesEXSArr.length
+     resultsObj.MathsWTCount = mathsGradesWTArr.length
+     resultsObj.GpsGDSCount = gpsGradesGDSArr.length
+     resultsObj.GpsEXSCount = gpsGradesEXSArr.length
+     resultsObj.GpsWTCount = gpsGradesWTArr.length
+
+     return resultsObj
+
+    } catch (error) {
+        console.log(error)
+        throw error
+    }
+
+}
+
+module.exports = {fetchKS1GradeCount}
