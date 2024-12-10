@@ -40,21 +40,21 @@ const fetchAverageAttendance = async (yearGroup, keyStage, studentId) => {
       throw { status: 400, msg: "No student records found." };
     }
 
-    const accademicYearsArr = records.map((record) => record.accademicYear);
+    const academicYearsArr = records.map((record) => record.academicYear);
 
-    if (accademicYearsArr.length === 0) {
+    if (academicYearsArr.length === 0) {
       throw {
         status: 400,
-        msg: "No student records found with accademic year values.",
+        msg: "No student records found with academic year values.",
       };
     }
     //create unique values with set
-    const accademicYearUnique = new Set(accademicYearsArr);
-    const uniqueAccademicYearsArray = [...accademicYearUnique];
+    const academicYearUnique = new Set(academicYearsArr);
+    const uniqueAcademicYearsArray = [...academicYearUnique];
 
-    const averages = uniqueAccademicYearsArray.map((year) => {
+    const averages = uniqueAcademicYearsArray.map((year) => {
       const filteredRecords = records.filter(
-        (record) => record.accademicYear === year
+        (record) => record.academicYear === year
       );
       const attendanceValues = filteredRecords.map(
         (record) =>
@@ -76,11 +76,11 @@ const fetchAverageAttendance = async (yearGroup, keyStage, studentId) => {
   }
 };
 
-const fetchLowestAttenders = async (accademicYear, yearGroup, Class, term) => {
+const fetchLowestAttenders = async (academicYear, yearGroup, Class, term) => {
 
   const regex = /^[0-9]{4}\/[0-9]{2}$/
 
-  if (accademicYear && regex.test(accademicYear)===false) {
+  if (academicYear && regex.test(academicYear)===false) {
       throw { status: 400, msg: "academicYear must be of type string and in the correct format." };
     }
 
@@ -101,8 +101,8 @@ const fetchLowestAttenders = async (accademicYear, yearGroup, Class, term) => {
   try {
     await run();
 
-    if (accademicYear) {
-      filter.accademicYear = accademicYear;
+    if (academicYear) {
+      filter.academicYear = academicYear;
     }
 
     if (yearGroup) {
@@ -141,7 +141,7 @@ const fetchLowestAttenders = async (accademicYear, yearGroup, Class, term) => {
       const lowest5Attenders = averageAttendancePerStudent.slice(0, 5);
 
       return {
-        AcademicYear: accademicYear ? accademicYear : "All Academic Years",
+        AcademicYear: academicYear ? academicYear : "All Academic Years",
         lowest5Attenders,
       };
     } else {
@@ -165,7 +165,7 @@ const fetchLowestAttenders = async (accademicYear, yearGroup, Class, term) => {
       const lowest5Attenders = averageAttendancePerStudent.slice(0, 5);
 
       console.log({
-        AcademicYear: accademicYear ? accademicYear : "All Academic Years",
+        AcademicYear: academicYear ? academicYear : "All Academic Years",
         YearGroup: yearGroup ? yearGroup : "All Year Groups",
         ClassNumber: Class ? Class : "All Classes",
         Term: term ? term : "All terms",
@@ -173,7 +173,7 @@ const fetchLowestAttenders = async (accademicYear, yearGroup, Class, term) => {
       })
 
       return {
-        AcademicYear: accademicYear ? accademicYear : "All Academic Years",
+        AcademicYear: academicYear ? academicYear : "All Academic Years",
         YearGroup: yearGroup ? yearGroup : "All Year Groups",
         ClassNumber: Class ? Class : "All Classes",
         Term: term ? term : "All terms",

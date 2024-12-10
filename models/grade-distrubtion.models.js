@@ -1,10 +1,10 @@
 const {client,run} = require('../connection')
 
-const fetchKS1GradeCount = async (accademicYear,yearGroup)=>{
+const fetchKS1GradeCount = async (academicYear,yearGroup)=>{
 
   const regex = /^[0-9]{4}\/[0-9]{2}$/
 
-  if (accademicYear && regex.test(accademicYear)===false) {
+  if (academicYear && regex.test(academicYear)===false) {
       throw { status: 400, msg: "academicYear must be of type string and in the correct format." };
     }
    
@@ -22,8 +22,8 @@ const fetchKS1GradeCount = async (accademicYear,yearGroup)=>{
         let filter={}
  
  
-        if(accademicYear){
-            filter.accademicYear = accademicYear;
+        if(academicYear){
+            filter.academicYear = academicYear;
         }
 
         if(yearGroup){
@@ -49,7 +49,7 @@ const fetchKS1GradeCount = async (accademicYear,yearGroup)=>{
      const gpsGradesWESArr = records.filter((record)=>record.ks1GPSGrade==='WES')
   
            let resultsObj = {
-            AcademicYear:accademicYear? accademicYear:"All Academic Years",
+            AcademicYear:academicYear? academicYear:"All Academic Years",
             YearGroup:yearGroup? Number(yearGroup):"All Year Groups",
             keyStage:1,
             ReadingBESCount:readingGradesBESArr.length,
@@ -71,21 +71,23 @@ const fetchKS1GradeCount = async (accademicYear,yearGroup)=>{
 }
 
 
-const fetchKS2GradeCount = async (accademicYear)=>{
+const fetchKS2GradeCount = async (academicYear)=>{
 
   const regex = /^[0-9]{4}\/[0-9]{2}$/
 
-  if (accademicYear && regex.test(accademicYear)===false) {
+
+
+  if (academicYear && regex.test(academicYear)===false) {
       throw { status: 400, msg: "academicYear must be of type string and in the correct format." };
     }
      
     try {
-
+      
      
-        let filter={yearGroup:6}
+     let filter={yearGroup:Number(6)} 
  
-        if(accademicYear){
-            filter.accademicYear = accademicYear;
+        if(academicYear){
+            filter.academicYear = academicYear;
         }
 
 
@@ -117,7 +119,7 @@ const fetchKS2GradeCount = async (accademicYear)=>{
 
 
       return{
-        AcademicYear:accademicYear? accademicYear:"All Academic Years",
+        AcademicYear:academicYear? academicYear:"All Academic Years",
         YearGroup:6,
         keyStage:2,
         ReadingGDSCount:readingGradesGDSArr.length,
@@ -135,7 +137,7 @@ const fetchKS2GradeCount = async (accademicYear)=>{
     }
 
 } catch(error){
-
+    console.log(error)
     throw error
 }
 }
@@ -165,25 +167,25 @@ const fetchKS1GradeCountYearOnYear = async (yearGroup)=>{
             throw { status: 400, msg: "No student records found." };
           }
       
-          const accademicYearsArr = records.map((record) => record.accademicYear);
+          const academicYearsArr = records.map((record) => record.academicYear);
       
-          if (accademicYearsArr.length === 0) {
+          if (academicYearsArr.length === 0) {
             throw {
               status: 400,
-              msg: "No student records found with accademic year values.",
+              msg: "No student records found with academic year values.",
             };
           }
           //create unique values with set
-          const accademicYearUnique = new Set(accademicYearsArr);
-          const uniqueAccademicYearsArray = [...accademicYearUnique];
+          const academicYearUnique = new Set(academicYearsArr);
+          const uniqueAcademicYearsArray = [...academicYearUnique];
 
           
 
-          for(let i = 0; i<uniqueAccademicYearsArray.length;i++){
+          for(let i = 0; i<uniqueAcademicYearsArray.length;i++){
 
             try {
 
-                const records = await fetchKS1GradeCount(uniqueAccademicYearsArray[i],parseInt(yearGroup))
+                const records = await fetchKS1GradeCount(uniqueAcademicYearsArray[i],parseInt(yearGroup))
                 resultsArray.push(records)
                 
             } catch (error) {
@@ -218,22 +220,22 @@ const fetchKS2GradeCountYearOnYear = async ()=>{
             throw { status: 400, msg: "No student records found." };
           }
       
-          const accademicYearsArr = records.map((record) => record.accademicYear);
+          const academicYearsArr = records.map((record) => record.academicYear);
           console.log('years map created')
-          if (accademicYearsArr.length === 0) {
+          if (academicYearsArr.length === 0) {
             throw {
               status: 400,
-              msg: "No student records found with accademic year values.",
+              msg: "No student records found with academic year values.",
             };
           }
           //create unique values with set
-          const accademicYearUnique = new Set(accademicYearsArr);
-          const uniqueAccademicYearsArray = [...accademicYearUnique];
+          const academicYearUnique = new Set(academicYearsArr);
+          const uniqueAcademicYearsArray = [...academicYearUnique];
     
           try {
 
-            for(let i=0;i<uniqueAccademicYearsArray.length;i++){
-                const records = await fetchKS2GradeCount(uniqueAccademicYearsArray[i])
+            for(let i=0;i<uniqueAcademicYearsArray.length;i++){
+                const records = await fetchKS2GradeCount(uniqueAcademicYearsArray[i])
                 resultsArray.push(records)
               
 

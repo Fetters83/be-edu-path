@@ -1,4 +1,4 @@
-const { fetchParticipationRate, fetchImprovementRate } = require("../models/engagement-metrics.models");
+const { fetchParticipationRate, fetchTimeToResolution } = require("../models/engagement-metrics.models");
 
 
 const getParticipationRate = async (req, res, next) => {
@@ -15,6 +15,15 @@ const getParticipationRate = async (req, res, next) => {
     }
 };
 
+const getTimeToResolution = async (req, res, next) => {
+    try {
+        const data = await fetchTimeToResolution();
+        res.status(200).send(data);
+    } catch (error) {
+        next(error);
+    }
+};
 
 
-module.exports = { getParticipationRate};
+
+module.exports = { getParticipationRate,getTimeToResolution};
