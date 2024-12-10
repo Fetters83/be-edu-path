@@ -7,6 +7,8 @@ const { getStudents, getStudentById } = require('./controllers/students.controll
 const { getBehaviourLogs, getBehaviorLogsByStudentId } = require('./controllers/behaviour-logs.controller');
 const { getSuggestions, getSuggestionsByStudentId } = require('./controllers/suggestions.controllers');
 const { getAverageAttendance, getLowestAttenders } = require('./controllers/average-attendance.controller');
+const { getKS1GradeCount, getKS2GradeCount, getKS1GradeCountYearOnYear, getKS2GradeCountYearOnYear } = require('./controllers/grade-distribution.controller');
+const { getIncidentRate } = require('./controllers/behavioral-metrics.controller');
 app.use(cors())
 
 app.get('/',testController)
@@ -22,7 +24,12 @@ app.get('/api/suggestions/:studentId',getSuggestionsByStudentId)
 
 app.get('/api/accademicMetrics/averageAttendance',getAverageAttendance)
 app.get('/api/accademicMetrics/studentLowestAttenders',getLowestAttenders)
+app.get('/api/accademicMetrics/gradeDistribution/ks1',getKS1GradeCount)
+app.get('/api/accademicMetrics/gradeDistribution/ks2',getKS2GradeCount)
+app.get('/api/accademicMetrics/gradeDistribution/ks1/yearOnYear',getKS1GradeCountYearOnYear)
+app.get('/api/accademicMetrics/gradeDistribution/ks2/yearOnYear',getKS2GradeCountYearOnYear)
 
+app.get('/api/behavioralMerics/incidentRate',getIncidentRate)
 
 
 app.use((error,req,res,next)=>{
