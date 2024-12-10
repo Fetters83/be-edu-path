@@ -2,13 +2,15 @@ const {client,run} = require('../connection')
 
 const fetchKS1GradeCount = async (accademicYear,yearGroup)=>{
 
-    if (accademicYear && typeof accademicYear != "string") {
-        throw { status: 400, msg: "academicYear must be of type string." };
-      }
+  const regex = /^[0-9]{4}\/[0-9]{2}$/
+
+  if (accademicYear && regex.test(accademicYear)===false) {
+      throw { status: 400, msg: "academicYear must be of type string and in the correct format." };
+    }
    
 
       if (yearGroup && isNaN(parseInt(yearGroup))) {
-        throw { status: 400, msg: "yearGroup must be of type string." };
+        throw { status: 400, msg: "yearGroup must be of type integer." };
       }
 
    
@@ -71,9 +73,11 @@ const fetchKS1GradeCount = async (accademicYear,yearGroup)=>{
 
 const fetchKS2GradeCount = async (accademicYear)=>{
 
-    if (accademicYear && typeof accademicYear != "string") {
-        throw { status: 400, msg: "academicYear must be of type string." };
-      }
+  const regex = /^[0-9]{4}\/[0-9]{2}$/
+
+  if (accademicYear && regex.test(accademicYear)===false) {
+      throw { status: 400, msg: "academicYear must be of type string and in the correct format." };
+    }
      
     try {
 

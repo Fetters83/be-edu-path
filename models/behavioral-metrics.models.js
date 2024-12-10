@@ -2,6 +2,29 @@ const {client,run} = require('../connection')
 
 const fetchIncidentRate = async(yearGroup,academicYear,primaryCategory,severity,status)=>{
 
+    const regex = /^[0-9]{4}\/[0-9]{2}$/
+
+    if (academicYear && regex.test(academicYear)===false) {
+        throw { status: 400, msg: "academicYear must be of type string and in the correct format." };
+      }
+
+
+      if (yearGroup && isNaN(parseInt(yearGroup))) {
+        throw { status: 400, msg: "yearGroup must be of type integer." };
+      }
+
+      if (primaryCategory && typeof primaryCategory != "string") {
+        throw { status: 400, msg: "primaryCategory must be of type string." };
+      }
+
+      if (severity && typeof severity != "string") {
+        throw { status: 400, msg: "severity must be of type string." };
+      }
+
+      if (status && typeof status != "string") {
+        throw { status: 400, msg: "status must be of type string." };
+      }
+
     try {
         await run(); // Ensure the MongoDB client is connected
 
@@ -49,4 +72,56 @@ const fetchIncidentRate = async(yearGroup,academicYear,primaryCategory,severity,
 
 }
 
-module.exports = {fetchIncidentRate}
+
+const fetchResolutionRate = async (academicYear,yearGroup)=>{
+
+    const regex = /^[0-9]{4}\/[0-9]{2}$/
+
+
+
+    if (academicYear && regex.test(academicYear)===false) {
+        throw { status: 400, msg: "academicYear must be of type string and in the correct format." };
+      }
+   
+
+      if (yearGroup && isNaN(parseInt(yearGroup))) {
+        throw { status: 400, msg: "yearGroup must be of type integer." };
+      }
+
+ 
+
+
+
+    try {
+        
+        await run();
+
+        const filter = {status:'Pending'};
+        if (yearGroup) filter.yearGroup = parseInt(yearGroup);
+        if (academicYear) filter.academicYear = academicYear;
+       
+
+        const allRecords = await client.db('eduPath').collection('behavior_logs').find().toArray()
+        const records = await client.db('eduPath').collection('behavior_logs').find(filter).toArray()
+
+        const resolutionRate = Number(((records.length/allRecords.length) *100).toFixed(2))
+
+        return {
+            AcademicYear:academicYear? academicYear:"All Academic Years",
+            yearGroup:yearGroup?yearGroup:"All Year Groups",
+            resolutionRate
+
+        }
+
+
+
+
+
+
+    } catch (error) {
+        throw error
+    }
+
+
+}
+module.exports = {fetchIncidentRate,fetchResolutionRate}

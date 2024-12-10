@@ -8,7 +8,7 @@ const { getBehaviourLogs, getBehaviorLogsByStudentId } = require('./controllers/
 const { getSuggestions, getSuggestionsByStudentId } = require('./controllers/suggestions.controllers');
 const { getAverageAttendance, getLowestAttenders } = require('./controllers/average-attendance.controller');
 const { getKS1GradeCount, getKS2GradeCount, getKS1GradeCountYearOnYear, getKS2GradeCountYearOnYear } = require('./controllers/grade-distribution.controller');
-const { getIncidentRate } = require('./controllers/behavioral-metrics.controller');
+const { getIncidentRate, getResolutionRate } = require('./controllers/behavioral-metrics.controller');
 app.use(cors())
 
 app.get('/',testController)
@@ -29,7 +29,8 @@ app.get('/api/accademicMetrics/gradeDistribution/ks2',getKS2GradeCount)
 app.get('/api/accademicMetrics/gradeDistribution/ks1/yearOnYear',getKS1GradeCountYearOnYear)
 app.get('/api/accademicMetrics/gradeDistribution/ks2/yearOnYear',getKS2GradeCountYearOnYear)
 
-app.get('/api/behavioralMerics/incidentRate',getIncidentRate)
+app.get('/api/behavioralMetrics/incidentRate',getIncidentRate)
+app.get('/api/behavioralMetrics/ResolutionRate',getResolutionRate)
 
 
 app.use((error,req,res,next)=>{
