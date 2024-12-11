@@ -10,7 +10,7 @@ const seedCounters = async () => {
     await client.connect();
     const db = client.db(dbName);
 
-    const countersCollection = db.collection('behaviorLogIdcounters');
+    const countersCollection = db.collection('behaviorLogIdCounters');
 
     // Check if the counter for behaviorLogId already exists
     const existingCounter = await countersCollection.findOne({ _id: 'behaviorLogId' });

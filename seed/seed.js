@@ -14,6 +14,9 @@ const files = [
   { file: `${dataPath}/studentsCollection.csv`, collection: "students" },
   { file: `${dataPath}/behaviorCollection.csv`, collection: "behavior_logs" },
   { file: `${dataPath}/suggestionsCollection.csv`, collection: "suggestions" },
+  { file: `${dataPath}/primaryCategoriesCollection.csv`, collection: "primaryCategories" },
+  { file: `${dataPath}/subCategoriesCollection.csv`, collection: "subCategories" },
+  { file: `${dataPath}/severityCollection.csv`, collection: "severities" },
 ];
 
 const client = new MongoClient(uri);

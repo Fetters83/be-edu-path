@@ -1,4 +1,4 @@
-const { fetchBehaviorLogs, fetchBehaviorLogsByStudentId } = require("../models/behaviour-logs.models")
+const { fetchBehaviorLogs, fetchBehaviorLogsByStudentId, insertNewBehaviorLog } = require("../models/behaviour-logs.models")
 
 
 const getBehaviourLogs = async (req,res,next)=>{
@@ -29,4 +29,18 @@ const getBehaviorLogsByStudentId = async (req,res,next)=>{
 
 }
 
-module.exports = {getBehaviourLogs,getBehaviorLogsByStudentId}
+    const postNewBehaviorLog = async (req,res,next)=>{
+
+        const newBehaviorLogObject = req.body
+
+    
+
+        try {
+            const data = await insertNewBehaviorLog(newBehaviorLogObject)
+            res.status(201).send(data)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+module.exports = {getBehaviourLogs,getBehaviorLogsByStudentId,postNewBehaviorLog}
