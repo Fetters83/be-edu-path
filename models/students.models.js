@@ -61,6 +61,37 @@ const insertNewStudent = async (newStudentObj) => {
   }
 };
 
+const editStudent = async (updatedStudentObj, studentId) => {
+    try {
+    
+      const existingStudent = await fetchStudentById(studentId);
+      const transformedStudent = transformNewStudent(updatedStudentObj);
+  
+
+      const updatedStudent = { ...existingStudent, ...transformedStudent };
+  
+
+      checkNewStudentValidity(updatedStudent);
+  
+    
+      const result = await client.db('eduPath').collection('students').updateOne(
+        { studentId: parseInt(studentId) }, 
+        { $set: updatedStudentObj } // 
+      );
+  
+      if (result.matchedCount === 0) {
+        throw { status: 404, msg: "Student not found or update failed." };
+      }
+  
+      console.log(`Successfully updated student with ID: ${studentId}`);
+      return { studentId: parseInt(studentId), ...updatedStudentObj };
+    } catch (error) {
+      console.error("Error in editStudent:", error);
+      throw error;
+    }
+  };
+  
+
 const checkNewStudentValidity = (newStudentObj)=>{
 
     if (!newStudentObj.academicYear) {
@@ -133,4 +164,4 @@ const checkNewStudentValidity = (newStudentObj)=>{
     return true;
 }
 
-module.exports = { fetchStudents, fetchStudentById, insertNewStudent };
+module.exports = { fetchStudents, fetchStudentById, insertNewStudent,editStudent};

@@ -3,7 +3,7 @@ const app = express();
 
 const cors = require('cors');
 const { testController } = require('./controllers/test.controller');
-const { getStudents, getStudentById, postNewStudent } = require('./controllers/students.controller');
+const { getStudents, getStudentById, postNewStudent, updateStudent } = require('./controllers/students.controller');
 const { getBehaviourLogs, getBehaviorLogsByStudentId } = require('./controllers/behaviour-logs.controller');
 const { getSuggestions, getSuggestionsByStudentId } = require('./controllers/suggestions.controllers');
 const { getAverageAttendance, getLowestAttenders } = require('./controllers/average-attendance.controller');
@@ -18,6 +18,7 @@ app.get('/',testController)
 app.get('/api/students',getStudents)
 app.get('/api/students/:studentId',getStudentById)
 app.post('/api/students',postNewStudent)
+app.patch('/api/students/:studentId',updateStudent)
 
 app.get('/api/behavior-logs',getBehaviourLogs)
 app.get('/api/behavior-logs/:studentId',getBehaviorLogsByStudentId)
