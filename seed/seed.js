@@ -1,6 +1,7 @@
 const { MongoClient } = require("mongodb");
 const csvtojson = require("csvtojson");
-
+require('dotenv').config();
+console.log(process.env.PASSWORD)
 // MongoDB connection details
 const uri = `mongodb+srv://wgyves:${process.env.PASSWORD}@fetters.5d3ue.mongodb.net`;
 const dbName = "eduPath";
@@ -44,11 +45,23 @@ const importFile = async (db, file, collection) => {
       // Transform specific fields
       if (record.studentId) record.studentId = parseInt(record.studentId, 10);
       if (record.yearGroup) record.yearGroup = parseInt(record.yearGroup, 10);
-      if (record.attendance) record.attendance = parseFloat(record.attendance);
-      if (record.dateCreated) record.dateCreated = new Date(record.dateCreated);
+      if (record.ks1ReadingScore) record.ks1ReadingScore = parseInt(record.ks1ReadingScore,10)
+      if (record.ks1MathsScore) record.ks1MathsScore = parseInt(record.ks1MathsScore,10)
+      if (record.ks1GPSScore) record.ks1GPSScore = parseInt(record.ks1GPSScore,10)  
+      if (record.readingScore) record.readingScore = parseInt(record.readingScore,10)  
+      if (record.mathsScore) record.mathsScore = parseInt(record.mathsScore,10)
+      if (record.gpsScore) record.gpsScore = parseInt(record.gpsScore,10)
+      if (record.writingScore) record.writingScore = parseInt(record.writingScore,10)
+      if (record.scienceScore) record.scienceScore = parseInt(record.scienceScore,10)
+      if (record.mtcScore) record.mtcScore = parseInt(record.mtcScore,10)      
+      if (record.attendance_autumnTerm) record.attendance_autumnTerm = parseFloat(record.attendance_autumnTerm);
+      if (record.attendance_springTerm) record.attendance_springTerm = parseFloat(record.attendance_springTerm);
+      if (record.attendance_summerTerm) record.attendance_summerTerm = parseFloat(record.attendance_summerTerm);
+      if (record.date) record.date = new Date(record.date);
       if (record.dateResolved) record.dateResolved = new Date(record.dateResolved);
       if (record.followUpRequired) record.followUpRequired = record.followUpRequired === "true";
-
+      if (record.behaviorLogId) record.behaviorLogId = parseInt(record.behaviorLogId, 10);
+      if (record.suggestionId) record.suggestionId = parseInt(record.suggestionId, 10);
       // Return the transformed record
       return record;
     });

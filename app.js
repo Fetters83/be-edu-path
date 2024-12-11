@@ -3,7 +3,7 @@ const app = express();
 
 const cors = require('cors');
 const { testController } = require('./controllers/test.controller');
-const { getStudents, getStudentById } = require('./controllers/students.controller');
+const { getStudents, getStudentById, postNewStudent } = require('./controllers/students.controller');
 const { getBehaviourLogs, getBehaviorLogsByStudentId } = require('./controllers/behaviour-logs.controller');
 const { getSuggestions, getSuggestionsByStudentId } = require('./controllers/suggestions.controllers');
 const { getAverageAttendance, getLowestAttenders } = require('./controllers/average-attendance.controller');
@@ -11,11 +11,13 @@ const { getKS1GradeCount, getKS2GradeCount, getKS1GradeCountYearOnYear, getKS2Gr
 const { getIncidentRate, getResolutionRate, getTop5BehaviorIncidents } = require('./controllers/behavioral-metrics.controller');
 const { getParticipationRate, getTimeToResolution } = require('./controllers/engagement-metrics.controller');
 app.use(cors())
+app.use(express.json());
 
 app.get('/',testController)
 
 app.get('/api/students',getStudents)
 app.get('/api/students/:studentId',getStudentById)
+app.post('/api/students',postNewStudent)
 
 app.get('/api/behavior-logs',getBehaviourLogs)
 app.get('/api/behavior-logs/:studentId',getBehaviorLogsByStudentId)
