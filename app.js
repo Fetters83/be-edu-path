@@ -4,12 +4,15 @@ const app = express();
 const cors = require('cors');
 const { testController } = require('./controllers/test.controller');
 const { getStudents, getStudentById, postNewStudent, updateStudent } = require('./controllers/students.controller');
-const { getBehaviourLogs, getBehaviorLogsByStudentId } = require('./controllers/behaviour-logs.controller');
+const { getBehaviourLogs, getBehaviorLogsByStudentId, postNewBehaviorLog } = require('./controllers/behaviour-logs.controller');
 const { getSuggestions, getSuggestionsByStudentId } = require('./controllers/suggestions.controllers');
 const { getAverageAttendance, getLowestAttenders } = require('./controllers/average-attendance.controller');
 const { getKS1GradeCount, getKS2GradeCount, getKS1GradeCountYearOnYear, getKS2GradeCountYearOnYear } = require('./controllers/grade-distribution.controller');
 const { getIncidentRate, getResolutionRate, getTop5BehaviorIncidents } = require('./controllers/behavioral-metrics.controller');
 const { getParticipationRate, getTimeToResolution } = require('./controllers/engagement-metrics.controller');
+const { getPrimaryCategories, postNewPrimaryCategory } = require('./controllers/primary-categories.controller');
+const { getSubCategories, postNewSubCategory } = require('./controllers/subcategories-controller');
+const { getSeverities, postNewSeverity } = require('./controllers/severities.controller');
 app.use(cors())
 app.use(express.json());
 
@@ -22,6 +25,7 @@ app.patch('/api/students/:studentId',updateStudent)
 
 app.get('/api/behavior-logs',getBehaviourLogs)
 app.get('/api/behavior-logs/:studentId',getBehaviorLogsByStudentId)
+app.post('/api/behavior-logs',postNewBehaviorLog)
 
 app.get('/api/suggestions',getSuggestions)
 app.get('/api/suggestions/:studentId',getSuggestionsByStudentId)
@@ -39,6 +43,15 @@ app.get('/api/behavioralMetrics/top5BehaviorIncidents',getTop5BehaviorIncidents)
 app.get('/api/engagementMetrics/participationRate',getParticipationRate)
 app.get('/api/engagementMetrics/getTimeToResolution',getTimeToResolution)
 
+
+app.get('/api/primaryCategories',getPrimaryCategories)
+app.post('/api/primaryCategories',postNewPrimaryCategory)
+
+app.get('/api/subCategories',getSubCategories)
+app.post('/api/subCategories',postNewSubCategory)
+
+app.get('/api/severities',getSeverities)
+app.post('/api/severities',postNewSeverity)
 
 app.use((error,req,res,next)=>{
     if(error.status && error.msg){
