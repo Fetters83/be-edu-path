@@ -7,7 +7,7 @@ const getNextBehaviorLogId = async (sequenceName) => {
       const result = await client.db('eduPath').collection('behaviorLogIdCounters').findOneAndUpdate(
         { _id: sequenceName },
         { $inc: { lastValue: 1 } },
-        { returnDocument: 'after', upsert: true } // Create the document if it doesn't exist
+        { returnDocument: 'after', upsert: true } 
       );
       console.log(result)
       return result.lastValue;

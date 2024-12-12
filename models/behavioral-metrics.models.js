@@ -147,9 +147,9 @@ const fetchTop5BehaviorIncidents = async (academicYear, yearGroup) => {
 
     
     try {
-        await run(); // Ensure the MongoDB client is connected
+        await run(); 
 
-    // Build the filter object based on the query parameters
+   
     let filter = {};
     if (yearGroup) filter.yearGroup = parseInt(yearGroup);
     if (academicYear) filter.academicYear = academicYear;
@@ -158,15 +158,15 @@ const fetchTop5BehaviorIncidents = async (academicYear, yearGroup) => {
     
         const records = await client.db('eduPath').collection('behavior_logs').aggregate([
 
-            { $match: filter}, // Apply the filter
+            { $match: filter}, 
             {
               $group: {
                 _id: {
-                  academicYear: "$academicYear", // Adjust this field based on how your data stores term info
+                  academicYear: "$academicYear", 
                   yearGroup: "$yearGroup",
                   subcategory: "$subcategory",
                 },
-                incidentCount: { $sum: 1 }, // Count the number of logs
+                incidentCount: { $sum: 1 }, 
               },
             },
             {
@@ -175,7 +175,7 @@ const fetchTop5BehaviorIncidents = async (academicYear, yearGroup) => {
                 yearGroup: "$_id.yearGroup",
                 subcategory: "$_id.subcategory",
                 incidentCount: 1,
-                _id: 0, // Exclude the internal MongoDB `_id` field
+                _id: 0, 
               },
             },
           ])

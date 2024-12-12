@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
-
-const uri = "mongodb+srv://wgyves:HVEYvzBexln8zs8F@fetters.5d3ue.mongodb.net";
+require('dotenv').config();
+const uri = `mongodb+srv://wgyves:${process.env.PASSWORD}@fetters.5d3ue.mongodb.net`;
 const dbName = "eduPath";
 
 const client = new MongoClient(uri);
@@ -12,10 +12,10 @@ const seedCounters = async () => {
 
     const countersCollection = db.collection('behaviorLogIdCounters');
 
-    // Check if the counter for behaviorLogId already exists
+
     const existingCounter = await countersCollection.findOne({ _id: 'behaviorLogId' });
     if (!existingCounter) {
-      // Seed the initial value for the behaviorLogId counter
+
       await countersCollection.insertOne({ _id: 'behaviorLogId', lastValue: 1351 });
       console.log("Seeded behaviorLogId counter with initial value of 1351.");
     } else {
