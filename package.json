@@ -2,11 +2,12 @@
   "name": "edu-path",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "listen.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node seed/seed.js",
-    "dev": "node listen.js"
+    "dev": "node listen.js",
+    "start": "node listen.js"
   },
   "author": "",
   "license": "ISC",
