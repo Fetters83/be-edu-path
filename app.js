@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 const cors = require('cors');
-const { testController } = require('./controllers/test.controller');
+
 const { getStudents, getStudentById, postNewStudent, updateStudent } = require('./controllers/students.controller');
 const { getBehaviourLogs, getBehaviorLogsByStudentId, postNewBehaviorLog } = require('./controllers/behaviour-logs.controller');
 const { getSuggestions, getSuggestionsByStudentId, postNewSuggestion, updateFollowUpRequired } = require('./controllers/suggestions.controllers');
@@ -16,7 +16,7 @@ const { getSeverities, postNewSeverity } = require('./controllers/severities.con
 app.use(cors())
 app.use(express.json());
 
-app.get('/',testController)
+
 
 app.get('/api/students',getStudents)
 app.get('/api/students/:studentId',getStudentById)
