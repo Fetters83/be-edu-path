@@ -64,11 +64,7 @@ const insertNewBehaviorLog = async (newBehaviorLogObj) =>{
         const severities = await fetchSeverities()
         if(!severities) throw({status:404,msg:'Severity Code does not exist.'})
         
-       /*  if(newBehaviorLogObj.status !='' || newBehaviorLogObj.status !="Pending" || newBehaviorLogObj.status !="Resolved"){
-            throw({status:404,msg:'Status does not exist!'})
-        }   */       
-
-
+    
         const newBehaviorLog = { behaviorLogId: lastId, ...transformedBehaviorLog };
         const result = await client.db('eduPath').collection('behavior_logs').insertOne(newBehaviorLog)
         return {newBehaviorLog:"New Behavior Log succesully posted!",result}

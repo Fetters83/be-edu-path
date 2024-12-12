@@ -5,7 +5,7 @@ const cors = require('cors');
 const { testController } = require('./controllers/test.controller');
 const { getStudents, getStudentById, postNewStudent, updateStudent } = require('./controllers/students.controller');
 const { getBehaviourLogs, getBehaviorLogsByStudentId, postNewBehaviorLog } = require('./controllers/behaviour-logs.controller');
-const { getSuggestions, getSuggestionsByStudentId } = require('./controllers/suggestions.controllers');
+const { getSuggestions, getSuggestionsByStudentId, postNewSuggestion, updateFollowUpRequired } = require('./controllers/suggestions.controllers');
 const { getAverageAttendance, getLowestAttenders } = require('./controllers/average-attendance.controller');
 const { getKS1GradeCount, getKS2GradeCount, getKS1GradeCountYearOnYear, getKS2GradeCountYearOnYear } = require('./controllers/grade-distribution.controller');
 const { getIncidentRate, getResolutionRate, getTop5BehaviorIncidents } = require('./controllers/behavioral-metrics.controller');
@@ -29,6 +29,8 @@ app.post('/api/behavior-logs',postNewBehaviorLog)
 
 app.get('/api/suggestions',getSuggestions)
 app.get('/api/suggestions/:studentId',getSuggestionsByStudentId)
+app.post('/api/suggestions/',postNewSuggestion) 
+app.patch('/api/suggestions/:suggestionId', updateFollowUpRequired);
 
 app.get('/api/academicMetrics/averageAttendance',getAverageAttendance)
 app.get('/api/academicMetrics/studentLowestAttenders',getLowestAttenders)

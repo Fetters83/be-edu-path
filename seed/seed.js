@@ -1,15 +1,15 @@
 const { MongoClient } = require("mongodb");
 const csvtojson = require("csvtojson");
 require('dotenv').config();
-console.log(process.env.PASSWORD)
-// MongoDB connection details
+
+
 const uri = `mongodb+srv://wgyves:${process.env.PASSWORD}@fetters.5d3ue.mongodb.net`;
 const dbName = "eduPath";
 
-// Path to the data folder
+
 const dataPath = "/home/bill/edu-path/be-edu-path/data";
 
-// Define the files and their corresponding collections
+
 const files = [
   { file: `${dataPath}/studentsCollection.csv`, collection: "students" },
   { file: `${dataPath}/behaviorCollection.csv`, collection: "behavior_logs" },
@@ -39,13 +39,13 @@ const importFile = async (db, file, collection) => {
   try {
     console.log(`Importing ${file} into ${collection} collection...`);
     
-    // Convert CSV to JSON and transform fields
+   
     const jsonArray = await csvtojson({
-      checkType: true, // Automatically detect numbers and booleans
+      checkType: true, 
     }).fromFile(file);
 
     const transformedData = jsonArray.map((record) => {
-      // Transform specific fields
+
       if (record.studentId) record.studentId = parseInt(record.studentId, 10);
       if (record.yearGroup) record.yearGroup = parseInt(record.yearGroup, 10);
       if (record.ks1ReadingScore) record.ks1ReadingScore = parseInt(record.ks1ReadingScore,10)
@@ -65,7 +65,7 @@ const importFile = async (db, file, collection) => {
       if (record.followUpRequired) record.followUpRequired = record.followUpRequired === "true";
       if (record.behaviorLogId) record.behaviorLogId = parseInt(record.behaviorLogId, 10);
       if (record.suggestionId) record.suggestionId = parseInt(record.suggestionId, 10);
-      // Return the transformed record
+
       return record;
     });
 
@@ -79,14 +79,14 @@ const importFile = async (db, file, collection) => {
 
 const seedDatabase = async () => {
   try {
-    // Connect to MongoDB
+
     await client.connect();
     const db = client.db(dbName);
 
-    // Process each file and collection
+
     for (const { file, collection } of files) {
-      await dropCollection(db, collection); // Drop the collection
-      await importFile(db, file, collection); // Import the file
+      await dropCollection(db, collection); 
+      await importFile(db, file, collection); 
     }
 
     console.log("Database seeding completed!");
@@ -97,5 +97,5 @@ const seedDatabase = async () => {
   }
 };
 
-// Execute the seed process
+
 seedDatabase();
