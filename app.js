@@ -59,6 +59,9 @@ app.use((error,req,res,next)=>{
     if(error.status && error.msg){
         res.status(error.status).send(error.msg)
     }
+    next(error)
 })
-
+app.all('*',(req,res,next)=>{
+    res.status(500).send({msg:'endpoint not found'})
+})
 module.exports = app
