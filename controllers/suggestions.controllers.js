@@ -1,6 +1,7 @@
 const { fetchSuggestions, fetchSuggestionsByStudentId, insertNewSuggestion, modifyFollowUpRequired } = require("../models/suggestions.models")
 
 
+//controller for getting ALL suggestions from the suggestions collection
 const getSuggestions = async (req,res,next)=>{
 
     try {
@@ -12,8 +13,10 @@ const getSuggestions = async (req,res,next)=>{
     
 }
 
+//controller for getting suggestions by student id from the suggestions collection
 const getSuggestionsByStudentId = async (req,res,next)=>{
 
+    //destructure the student id from the request parameters to be used in the model
     const {studentId} = req.params
 
     try {
@@ -29,8 +32,10 @@ const getSuggestionsByStudentId = async (req,res,next)=>{
 }
 
 
-
+//controller for posting a new suggestion object
 const postNewSuggestion = async (req, res, next) => {
+
+  //destructure the new suggestion object from the request body
   const newSuggestion = req.body;
 
 
@@ -42,8 +47,12 @@ const postNewSuggestion = async (req, res, next) => {
   }
 };
 
+// controller for updating the follupRequired field in the suggestions collection (and updating the behavior_log collection resolved date and status)
 const updateFollowUpRequired = async (req, res, next) => {
+
+    //destructre the suggestionID value from the request parameters to be used in the model
     const { suggestionId } = req.params;
+    //destrcture the followUpRequired information from the request body to be used in the model
     const { followUpRequired } = req.body;
 
     try {

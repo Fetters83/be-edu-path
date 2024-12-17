@@ -1,6 +1,6 @@
 const { fetchSeverities, insertNewSeverity } = require("../models/severities.models");
 
-
+//controller for getting ALL severities from the severities collection
 const getSeverities = async (req, res, next) => {
   try {
     const data = await fetchSeverities();
@@ -10,6 +10,7 @@ const getSeverities = async (req, res, next) => {
   }
 };
 
+//controller for posting new severity to the severities collection
 const postNewSeverity = async (req, res, next) => {
   try {
     const { severityCode } = req.body;

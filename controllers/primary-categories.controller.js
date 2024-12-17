@@ -1,5 +1,6 @@
 const { fetchPrimaryCategories, insertNewPrimaryCategory } = require("../models/primary-categories.models");
 
+//controller for getting ALL primary categories from the primaryCategories collection
 const getPrimaryCategories = async (req, res, next) => {
     try {
       const data = await fetchPrimaryCategories();
@@ -9,7 +10,7 @@ const getPrimaryCategories = async (req, res, next) => {
     }
   };
 
-
+//controller for posting new Primary Category to the primaryCategories collection
   const postNewPrimaryCategory = async (req, res, next) => {
     try {
       const { primaryCategory } = req.body;

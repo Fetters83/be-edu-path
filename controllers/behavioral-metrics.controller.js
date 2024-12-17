@@ -1,7 +1,9 @@
 const { fetchIncidentRate, fetchResolutionRate, fetchTop5BehaviorIncidents } = require("../models/behavioral-metrics.models")
 
+//controller for incident rate visual
 const getIncidentRate = async (req,res,next) =>{
 
+      //destrucuture yearGroup, academicYear, primaryCategory,severity and status from request query for variables to be used in the model
     const {yearGroup,academicYear,primaryCategory,severity,status} = req.query
 
     try {
@@ -15,8 +17,10 @@ const getIncidentRate = async (req,res,next) =>{
 
 }
 
+//controller for resolution rate visual
 const getResolutionRate = async(req,res,next) =>{
 
+    //destrucuture yearGroup and academicYear from the request query for variables to be used in the model
     const {academicYear,yearGroup} = req.query
 
     try {
@@ -31,8 +35,10 @@ const getResolutionRate = async(req,res,next) =>{
 
 }
 
+//controller for top 5 behavior incidents
 const getTop5BehaviorIncidents= async(req,res,next) =>{
 
+       //destrucuture yearGroup and academicYear from the request query for variables to be used in the model
     const {academicYear,yearGroup} = req.query
 
     try {

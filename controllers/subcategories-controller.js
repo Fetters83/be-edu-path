@@ -1,6 +1,6 @@
 const { fetchSubCategories, insertNewSubCategory } = require("../models/subcategories.models");
 
-  
+  //controller for getting ALL subcategories from the subCategories collection
   const getSubCategories = async (req, res, next) => {
     try {
       const data = await fetchSubCategories();
@@ -10,6 +10,7 @@ const { fetchSubCategories, insertNewSubCategory } = require("../models/subcateg
     }
   };
   
+  //controller for posting new sub catagory to the subCategories collection
   const postNewSubCategory = async (req, res, next) => {
     try {
       const { subCategory, primaryCategory } = req.body;

@@ -1,9 +1,11 @@
 const transformNewBehaviorLog = (newBehaviorLog)=>{
 
+    //iterate through all newObjectLog keys
     const behaviorLogObj = Object.keys(newBehaviorLog)
   
     behaviorLogObj.forEach((behaviorLog)=>{
 
+        //transform the below values from string to the correct data types
         if (behaviorLog==='studentId') newBehaviorLog[behaviorLog] = parseInt(newBehaviorLog[behaviorLog], 10);
         if (behaviorLog==='yearGroup' && newBehaviorLog[behaviorLog]>0 ) newBehaviorLog[behaviorLog] = parseInt(newBehaviorLog[behaviorLog], 10);
         if (behaviorLog==='date') newBehaviorLog[behaviorLog] = new Date(newBehaviorLog[behaviorLog])
@@ -12,7 +14,7 @@ const transformNewBehaviorLog = (newBehaviorLog)=>{
     
         
     })
-
+    //return the transformed object
     return newBehaviorLog
 }
 
