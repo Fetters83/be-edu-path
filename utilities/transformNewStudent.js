@@ -1,7 +1,9 @@
 const transformNewStudent = (newStudent)=>{
 
+     //iterate through all newStudentObj keys
     const studentObj = Object.keys(newStudent)
   
+     //transform the below values from string to the correct data types
     studentObj.forEach((student)=>{
 
         if (student==='yearGroup') newStudent[student] = parseInt(newStudent[student], 10);
@@ -24,7 +26,7 @@ const transformNewStudent = (newStudent)=>{
         
     })
 
-   
+    //return the transformed object
     return newStudent
 }
 

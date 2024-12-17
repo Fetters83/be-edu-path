@@ -2,97 +2,117 @@ const { client, run } = require("../connection");
 const { getNextStudentId } = require("../utilities/getNextStudentId");
 const { transformNewStudent } = require("../utilities/transformNewStudent");
 
+//model to fetch all students
 const fetchStudents = async () => {
   try {
+    //ensure a connection to the mongo db client
     await run();
+    //execute the mongo db query to fetch all students
     const records = await client
       .db("eduPath")
       .collection("students")
       .find()
       .toArray();
+      //return the result to the server
     return records;
   } catch (error) {
     throw error;
   }
 };
 
+//model to fetch student by id
 const fetchStudentById = async (studentId) => {
+
+  //if student id, once parsed, is not a number throw an error back to the server
   if (isNaN(parseInt(studentId))) {
     throw { status: 400, msg: "Student Id is not of type number." };
   }
 
   try {
+     //ensure a connection to the mongo db client
     await run();
+    //execute mongo db query and store against record variable
     const record = await client
       .db("eduPath")
       .collection("students")
       .findOne({ studentId: parseInt(studentId) });
 
+    // if no record found throw an error
     if (!record) {
       throw { status: 404, msg: "Student Id not found." };
     }
 
+    //return record to the server
     return record;
   } catch (error) {
     throw error;
   }
 };
 
+//model to insert new student object into the students collection
 const insertNewStudent = async (newStudentObj) => {
 
   try {
 
+    //call the function checkNewStudentValidity passing in the newStudent Object
     checkNewStudentValidity(newStudentObj)
+    //ensure a connection to the mongo db client
     await run();
+    //pass newStudentObj into the function transforNewStudent
     const transformedStudent = transformNewStudent(newStudentObj);
+    //retrieve the last used id from the studentCounters collection and store against the variable lastId
     const lastId = await getNextStudentId("studentId");
 
+    //append the new student id and the trasnformed object into a new object
     const newStudent = { studentId: lastId, ...transformedStudent };
 
+    //execute the mongo db insert query
     const result = await client
       .db("eduPath")
       .collection("students")
       .insertOne(newStudent);
-    console.log("New Student successfully posted!: ", result);
+    //return the result to the server
     return newStudent;
   } catch (error) {
-    console.log(error);
-    throw error;
+      throw error;
   }
 };
 
+//model to update student
 const editStudent = async (updatedStudentObj, studentId) => {
     try {
-    
+      //fetch student by id to ensure the student exists
       const existingStudent = await fetchStudentById(studentId);
+      // transform the updated student object
       const transformedStudent = transformNewStudent(updatedStudentObj);
-  
-
+      //merge the existing student with the trasnformed student object against variable updatedStudent
       const updatedStudent = { ...existingStudent, ...transformedStudent };
   
-
+      // run the updatedStudent object against the checkNewStudentValidity function
       checkNewStudentValidity(updatedStudent);
   
-    
+    //execute the mongo db query to update a student object and set the value to the updatedStudentObj
       const result = await client.db('eduPath').collection('students').updateOne(
         { studentId: parseInt(studentId) }, 
         { $set: updatedStudentObj } // 
       );
-  
+      
+      //if the student id was not able to update throw an error
       if (result.matchedCount === 0) {
         throw { status: 404, msg: "Student not found or update failed." };
       }
   
-      console.log(`Successfully updated student with ID: ${studentId}`);
+      //return the result in an object to the server
       return { studentId: parseInt(studentId), ...updatedStudentObj };
     } catch (error) {
-      console.error("Error in editStudent:", error);
-      throw error;
+       throw error;
     }
   };
   
 
 const checkNewStudentValidity = (newStudentObj)=>{
+
+  //check that object keys exist and are of the correct data type for transformation later
 
     if (!newStudentObj.academicYear) {
         throw { status: 404, msg: "Object is missing an academicYear key." };

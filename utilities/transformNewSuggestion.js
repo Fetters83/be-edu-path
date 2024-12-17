@@ -1,5 +1,7 @@
 function transformNewSuggestion(newSuggestion) {
     const transformedSuggestion = { ...newSuggestion };
+
+    //ensure all key value pairs are transformed where appropriate
   
     if (transformedSuggestion.studentId) {
       transformedSuggestion.studentId = parseInt(transformedSuggestion.studentId, 10);

@@ -1,6 +1,6 @@
 const { fetchStudents, fetchStudentById, insertNewStudent, editStudent } = require("../models/students.models")
 
-
+//controller to get ALL student objects from the students collection
 const getStudents = async (req,res,next)=>{
 
     try {
@@ -15,8 +15,10 @@ const getStudents = async (req,res,next)=>{
 
 }
 
+//controller to get student object by id from the students collection
 const getStudentById = async (req,res,next)=>{
 
+    //destructure the studentId from the request parameters
     const {studentId} = req.params
 
     try {
@@ -28,8 +30,11 @@ const getStudentById = async (req,res,next)=>{
     }
    
 }
+
+//controller to post a new student to the students collection
  const postNewStudent = async (req,res,next)=>{
 
+//destructure new student object from the request body to be used in the model
 const newStudentObj = req.body
 
             try {
@@ -43,9 +48,12 @@ const newStudentObj = req.body
 
 }
 
+//controller to update/patch a student object in the students collection
 const updateStudent = async(req,res,next)=>{
 
+    //destructure updated student object from the request body
     const updatedStudentObj = req.body
+     //destructure the studentId from the request parameters
     const {studentId} = req.params
 
     try {
