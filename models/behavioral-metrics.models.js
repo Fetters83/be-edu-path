@@ -7,7 +7,7 @@ const fetchIncidentRate = async (
   severity,
   status
 ) => {
-  /store regex value against variable regex for the format YYYY/MM
+  //store regex value against variable regex for the format YYYY/MM
   const regex = /^[0-9]{4}\/[0-9]{2}$/;
 
    //If academicYear is not undefined but fails the regex test, throw an error back to the server
