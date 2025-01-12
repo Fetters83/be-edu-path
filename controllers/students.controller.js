@@ -1,4 +1,4 @@
-const { fetchStudents, fetchStudentById, insertNewStudent, editStudent } = require("../models/students.models")
+const { fetchStudents, fetchStudentById, insertNewStudent, editStudent, fetchAllStudentRecordsById } = require("../models/students.models")
 
 //controller to get ALL student objects from the students collection
 const getStudents = async (req,res,next)=>{
@@ -29,6 +29,21 @@ const getStudentById = async (req,res,next)=>{
        next(error)
     }
    
+}
+
+const getAllStudentRecordsById = async(req,res,next)=>{
+     //destructure the studentId from the request parameters
+     const {studentId} = req.params
+
+     try {
+        const data = await fetchAllStudentRecordsById(studentId)
+       
+     
+        res.status(200).send(data)
+    } catch (error) {
+       next(error)
+    }
+
 }
 
 //controller to post a new student to the students collection
@@ -66,4 +81,4 @@ const updateStudent = async(req,res,next)=>{
     }
 }
 
-module.exports = {getStudents,getStudentById,postNewStudent,updateStudent}
+module.exports = {getStudents,getStudentById,postNewStudent,updateStudent,getAllStudentRecordsById}

@@ -49,6 +49,36 @@ const fetchStudentById = async (studentId) => {
   }
 };
 
+//model to fetch student by id
+const fetchAllStudentRecordsById = async (studentId) => {
+
+  //if student id, once parsed, is not a number throw an error back to the server
+  if (isNaN(parseInt(studentId))) {
+    throw { status: 400, msg: "Student Id is not of type number." };
+  }
+
+  try {
+     //ensure a connection to the mongo db client
+    await run();
+    //execute mongo db query and store against record variable
+    const record = await client
+      .db("eduPath")
+      .collection("students")
+      .find({ studentId: parseInt(studentId) })
+      .toArray();
+     
+    // if no record found throw an error
+    if (!record) {
+      throw { status: 404, msg: "Student Id not found." };
+    }
+
+    //return record to the server
+    return record;
+  } catch (error) {
+    throw error;
+  }
+};
+
 //model to insert new student object into the students collection
 const insertNewStudent = async (newStudentObj) => {
 
@@ -184,4 +214,4 @@ const checkNewStudentValidity = (newStudentObj)=>{
     return true;
 }
 
-module.exports = { fetchStudents, fetchStudentById, insertNewStudent,editStudent};
+module.exports = { fetchStudents, fetchStudentById, insertNewStudent,editStudent,fetchAllStudentRecordsById};
