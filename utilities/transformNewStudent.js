@@ -22,6 +22,7 @@ const transformNewStudent = (newStudent)=>{
         if (student==='date') newStudent[student] = new Date(newStudent[student])
         if (student==='dateResolved') newStudent[student] = new Date(newStudent[student])
         if (student==='followUpRequired') newStudent[student] = "true";
+        if (student==='parentContactPhone') newStudent[student] = String(newStudent[student])
 
         
     })
