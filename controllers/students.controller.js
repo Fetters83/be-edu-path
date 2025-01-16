@@ -68,6 +68,7 @@ const updateStudent = async(req,res,next)=>{
 
     //destructure updated student object from the request body
     const updatedStudentObj = req.body
+
      //destructure the studentId from the request parameters
     const {studentId} = req.params
 

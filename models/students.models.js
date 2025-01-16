@@ -111,6 +111,14 @@ const insertNewStudent = async (newStudentObj) => {
 //model to update student
 const editStudent = async (updatedStudentObj, studentId) => {
     try {
+
+      //destructure the academic year
+      const {academicYear} = updatedStudentObj
+
+      //ensure the academic year key exists, if not throw an error
+      if(!academicYear){
+        throw{status:400, msg:'You must provide an Academic Year to update the student record'}
+      }
       //fetch student by id to ensure the student exists
       const existingStudent = await fetchStudentById(studentId);
       // transform the updated student object
@@ -123,7 +131,9 @@ const editStudent = async (updatedStudentObj, studentId) => {
   
     //execute the mongo db query to update a student object and set the value to the updatedStudentObj
       const result = await client.db('eduPath').collection('students').updateOne(
-        { studentId: parseInt(studentId) }, 
+        { studentId: parseInt(studentId),
+          academicYear:academicYear
+         }, 
         { $set: updatedStudentObj } // 
       );
       

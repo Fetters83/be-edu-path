@@ -65,7 +65,7 @@ const importFile = async (db, file, collection) => {
       if (record.followUpRequired) record.followUpRequired = record.followUpRequired === "true";
       if (record.behaviorLogId) record.behaviorLogId = parseInt(record.behaviorLogId, 10);
       if (record.suggestionId) record.suggestionId = parseInt(record.suggestionId, 10);
-
+      if (record.parentContactPhone) record.parentContactPhone = String(record.parentContactPhone)
       return record;
     });
 

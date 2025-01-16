@@ -1,10 +1,9 @@
 const { MongoClient } = require('mongodb');
-require('dotenv').config();
-const uri = `mongodb+srv://wgyves:${process.env.PASSWORD}@fetters.5d3ue.mongodb.net`;
+require('dotenv').config({ path: '../.env' });
+const uri = `mongodb+srv://wgyves:${process.env.PASSWORD}@fetters.5d3ue.mongodb.net/?retryWrites=true&w=majority&appName=fetters`;
 const dbName = "eduPath";
 
 const client = new MongoClient(uri);
-
 
 const seedCounters = async () => {
   try {
