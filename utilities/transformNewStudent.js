@@ -21,7 +21,7 @@ const transformNewStudent = (newStudent)=>{
         if (student==='attendance_summerTerm' && newStudent[student]>0) newStudent[student]= parseFloat(newStudent[student]);
         if (student==='date') newStudent[student] = new Date(newStudent[student])
         if (student==='dateResolved') newStudent[student] = new Date(newStudent[student])
-        if (student==='followUpRequired') newStudent[student] = "true";
+        //if (student==='followUpRequired') newStudent[student] = "true";
         if (student==='parentContactPhone') newStudent[student] = String(newStudent[student])
 
         

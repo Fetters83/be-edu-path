@@ -12,6 +12,7 @@ const dataPath = "/home/bill/edu-path/be-edu-path/data";
 
 const files = [
   { file: `${dataPath}/studentsCollection.csv`, collection: "students" },
+  { file: `${dataPath}/studentYearRecordsCollection.csv`, collection: "studentAcademicRecords" },
   { file: `${dataPath}/behaviorCollection.csv`, collection: "behavior_logs" },
   { file: `${dataPath}/suggestionsCollection.csv`, collection: "suggestions" },
   { file: `${dataPath}/primaryCategoriesCollection.csv`, collection: "primaryCategories" },
@@ -42,8 +43,12 @@ const importFile = async (db, file, collection) => {
    
     const jsonArray = await csvtojson({
       checkType: true, 
+      colParser: {
+        parentContactPhone: "string"
+      }
     }).fromFile(file);
 
+    //console.log(jsonArray[0].parentContactPhone);
     const transformedData = jsonArray.map((record) => {
 
       if (record.studentId) record.studentId = parseInt(record.studentId, 10);
@@ -62,10 +67,21 @@ const importFile = async (db, file, collection) => {
       if (record.attendance_summerTerm) record.attendance_summerTerm = parseFloat(record.attendance_summerTerm);
       if (record.date) record.date = new Date(record.date);
       if (record.dateResolved) record.dateResolved = new Date(record.dateResolved);
-      if (record.followUpRequired) record.followUpRequired = record.followUpRequired === "true";
+      
+      if (record.followUpRequired==='No') {
+        record.followUpRequired = false
+      } else{
+        record.followUpRequired = true
+      }
       if (record.behaviorLogId) record.behaviorLogId = parseInt(record.behaviorLogId, 10);
       if (record.suggestionId) record.suggestionId = parseInt(record.suggestionId, 10);
-      if (record.parentContactPhone) record.parentContactPhone = String(record.parentContactPhone)
+      if (record.parentContactPhone !== undefined) {
+        record.parentContactPhone = String(record.parentContactPhone).trim();
+      }
+      //add leading zero to mobile numbers
+      if (/^7\d{9}$/.test(record.parentContactPhone)) {
+        record.parentContactPhone = `0${record.parentContactPhone}`;
+      }
       return record;
     });
 
