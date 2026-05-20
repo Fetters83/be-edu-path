@@ -55,6 +55,8 @@ const insertNewSuggestion = async (newSuggestionObj) => {
       //call checkNewSuggestionValidity with newSuggestionObj
       checkNewSuggestionValidity(newSuggestionObj);
 
+      
+
       //ensure the student id in the request body object exists
       await fetchStudentById(newSuggestionObj.studentId);
       
