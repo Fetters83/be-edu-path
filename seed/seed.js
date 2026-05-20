@@ -78,6 +78,7 @@ const importFile = async (db, file, collection) => {
       if (record.parentContactPhone !== undefined) {
         record.parentContactPhone = String(record.parentContactPhone).trim();
       }
+      //add leading zero to mobile numbers
       if (/^7\d{9}$/.test(record.parentContactPhone)) {
         record.parentContactPhone = `0${record.parentContactPhone}`;
       }
